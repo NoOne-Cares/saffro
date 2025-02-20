@@ -2,10 +2,10 @@
 /**
  * Autoloader file for theme.
  *
- * @package Saffro
+ * @package Aquila
  */
 
-namespace SAFFRO\Inc\Helpers;
+namespace SAFFRO_THEME\Inc\Helpers;
 
 /**
  * Auto loader function.
@@ -16,7 +16,7 @@ namespace SAFFRO\Inc\Helpers;
  */
 function autoloader( $resource = '' ) {
 	$resource_path  = false;
-	$namespace_root = 'SAFFRO\\';
+	$namespace_root = 'SAFFRO_THEME\\';
 	$resource       = trim( $resource, '\\' );
 
 	if ( empty( $resource ) || strpos( $resource, '\\' ) === false || strpos( $resource, $namespace_root ) !== 0 ) {
@@ -67,8 +67,12 @@ function autoloader( $resource = '' ) {
 				$file_name = sprintf( 'class-%s', trim( strtolower( $path[1] ) ) );
 				break;
 		}
+        if(!defined('SAFFRO_DIR_PATH')){
+            define('SAFFRO_DIR_PATH',get_template_directory());
+        }
+        
 
-		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( AQUILA_DIR_PATH ), $directory, $file_name );
+		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( SAFFRO_DIR_PATH ), $directory, $file_name );
 
 	}
 
@@ -84,4 +88,4 @@ function autoloader( $resource = '' ) {
 
 }
 
-spl_autoload_register( '\SAFFRO\Inc\Helpers\autoloader' );
+spl_autoload_register( '\SAFFRO_THEME\Inc\Helpers\autoloader' );

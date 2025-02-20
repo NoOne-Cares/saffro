@@ -157,7 +157,9 @@ $singleton1 = Singleton::getInstance();
 $singleton1->doSomething();  // Outputs: Doing something!
 
 $singleton2 = Singleton::getInstance();
-echo $singleton1 === $singleton2 ? 'Same instance' : 'Different instances';  // Outputs: Same instance
+// Outputs: Same instance
+echo $singleton1 === $singleton2 ? 'Same instance' : 'Different instances';
+
 ```
 
 Using trits to create a silginton
@@ -178,7 +180,33 @@ trait singilton{
 class User{
     Use singilton;
 }
-
-$User_One = User::get_instance
-
+//dosn't matter how many time with create a objsect it will ony create on objcet
+// and point towards them
+$User_One = User::get_instance();
+$User_Two = User::get_instance()
 ```
+
+### Theme
+
+##### Basic Theme structure
+
+- parts/
+  - footer.html
+  - header.html
+- patterns/
+  - example.php
+- styles/
+  - example.json
+- templates/
+  - 404.html
+  - archive.html
+  - index.html (required)
+  - singular.html
+- README.txt
+- functions.php
+- screenshot.png
+- style.css [required](https://developer.wordpress.org/themes/core-concepts/main-stylesheet/)
+- theme.json
+
+[Required Files](https://developer.wordpress.org/themes/core-concepts/theme-structure/#required-files)
+[Optional Files](https://developer.wordpress.org/themes/core-concepts/theme-structure/#optional-files)
